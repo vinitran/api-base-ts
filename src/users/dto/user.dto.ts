@@ -1,19 +1,19 @@
-import { Expose } from 'class-transformer';
+import { Expose } from "class-transformer"
 
 export class UserResponse {
-  @Expose()
-  id: string;
+	@Expose()
+	id: string
 
-  @Expose()
-  address: string;
+	@Expose()
+	address: string
 
-  @Expose()
-  createdAt: string;
+	@Expose()
+	createdAt: string
 
-  @Expose()
-  updatedAt: string;
+	@Expose()
+	updatedAt: string
 
-  constructor(partial: Partial<UserResponse>) {
-    Object.assign(this, partial);
-  }
+	constructor(partial: Partial<UserResponse>) {
+		Object.assign(this, partial)
+	}
 }

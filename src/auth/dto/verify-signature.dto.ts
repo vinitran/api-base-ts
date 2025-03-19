@@ -1,6 +1,5 @@
 import { Prop } from "@root/_shared/utils/decorators"
-import { Address } from "viem"
-import { Expose } from 'class-transformer';
+import { Expose } from "class-transformer"
 
 export class VerifySignaturePayload {
 	@Prop()

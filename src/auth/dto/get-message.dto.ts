@@ -1,5 +1,5 @@
 import { Prop } from "@root/_shared/utils/decorators"
-import { Expose } from 'class-transformer';
+import { Expose } from "class-transformer"
 
 export class GetMessageParams {
 	@Prop()
@@ -7,6 +7,6 @@ export class GetMessageParams {
 }
 
 export class GetMessageResponse {
-  @Expose()
-  message: string
+	@Expose()
+	message: string
 }
