@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Migrate prisma databse
-        run: prisma migrate dev
-
       - name: Generate prisma client
         run: pnpm prisma generate
 
