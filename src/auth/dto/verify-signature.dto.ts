@@ -1,5 +1,6 @@
 import { Prop } from "@root/_shared/utils/decorators"
 import { Address } from "viem"
+import { Expose } from 'class-transformer';
 
 export class VerifySignaturePayload {
 	@Prop()
@@ -12,13 +13,7 @@ export class VerifySignaturePayload {
 	publicKey: string
 }
 
-export class VerifySignatureHederaPayload {
-	@Prop()
-	message: string
-
-	@Prop()
-	signature: Address
-
-	@Prop()
-	address: Address
+export class VerifySignatureResponse {
+	@Expose()
+	token: string
 }

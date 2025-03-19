@@ -1,8 +1,10 @@
 import { Body, Controller, Get, Post, Query } from "@nestjs/common"
 import { ApiTags } from "@nestjs/swagger"
 import { AuthService } from "./auth.service"
-import { GetMessageParams } from "./dto/get-message.dto"
-import { VerifySignaturePayload } from "./dto/verify-signature.dto"
+import { GetMessageParams, GetMessageResponse } from './dto/get-message.dto';
+import { VerifySignaturePayload, VerifySignatureResponse } from './dto/verify-signature.dto';
+import { plainToInstance } from 'class-transformer';
+import { UserResponse } from '@root/users/dto/user.dto';
 
 @Controller("auth")
 @ApiTags("auth")
@@ -11,17 +13,23 @@ export class AuthController {
 
 	@Get("message")
 	async createMessage(@Query() { publicKey }: GetMessageParams) {
-		return this.authService
-			.generateMessage(publicKey)
-			.then(message => ({ message }))
+		const message = await this.authService.generateMessage(publicKey)
+		return plainToInstance(
+      GetMessageResponse,
+      { message },
+      { excludeExtraneousValues: true },
+    );
 	}
 
 	@Post("verify-signature")
 	async verifySignature(
 		@Body() verifySignatureRequest: VerifySignaturePayload
 	) {
-		return this.authService
-			.verifySignature(verifySignatureRequest)
-			.then(token => ({ token }))
+		const token = await this.authService.verifySignature(verifySignatureRequest)
+		return plainToInstance(
+      VerifySignatureResponse,
+      { token },
+      { excludeExtraneousValues: true },
+    );
 	}
 }
