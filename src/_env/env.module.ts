@@ -19,7 +19,7 @@ const provider: Provider = {
 		if (!JWT_SECRET) throw new Error("missing JWT_SECRET env")
 
 		return {
-			JWT_SECRET,
+			JWT_SECRET
 		} satisfies Env
 	},
 	inject: [ConfigService]

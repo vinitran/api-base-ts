@@ -2,10 +2,7 @@ import { Body, Controller, Get, Post, Query } from "@nestjs/common"
 import { ApiTags } from "@nestjs/swagger"
 import { AuthService } from "./auth.service"
 import { GetMessageParams } from "./dto/get-message.dto"
-import {
-	VerifySignatureHederaPayload,
-	VerifySignaturePayload
-} from "./dto/verify-signature.dto"
+import { VerifySignaturePayload } from "./dto/verify-signature.dto"
 
 @Controller("auth")
 @ApiTags("auth")

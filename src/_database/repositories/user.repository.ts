@@ -1,6 +1,6 @@
-import { Injectable, Logger } from "@nestjs/common"
+import { Injectable } from "@nestjs/common"
 import { Prisma } from "@prisma/client"
-import {PrismaService} from '../prisma.service';
+import { PrismaService } from "@root/_database/prisma.service"
 
 type CreateUserIfNotExistParams = {
 	address: string
@@ -16,7 +16,7 @@ export class UserRepository {
 		if (!user) {
 			return this.prisma.users.create({
 				data: {
-					address: params.address,
+					address: params.address
 				}
 			})
 		}
@@ -30,7 +30,7 @@ export class UserRepository {
 				id
 			},
 			data: payload
-		});
+		})
 	}
 
 	findByAddress(address: string) {

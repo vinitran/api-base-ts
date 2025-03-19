@@ -1,13 +1,4 @@
-import {
-	Body,
-	Controller,
-	Get,
-	Post,
-	Put,
-	Query,
-	UploadedFile,
-	UseInterceptors
-} from "@nestjs/common"
+import { Controller, Get } from "@nestjs/common"
 import { ApiTags } from "@nestjs/swagger"
 import { Auth } from "@root/_shared/utils/decorators"
 import { Claims } from "@root/auth/auth.service"

@@ -1,4 +1,4 @@
-import { OptionalProp, Prop } from "@root/_shared/utils/decorators"
+import { Prop } from "@root/_shared/utils/decorators"
 import { Address } from "viem"
 
 export class VerifySignaturePayload {
