@@ -24,8 +24,9 @@ async function bootstrap() {
 
 	SwaggerModule.setup("api", app, documentFactory, {
 		swaggerOptions: {
-			persistAuthorization: true
-		}
+			persistAuthorization: true,
+		},
+		jsonDocumentUrl: "api.json",
 	})
 
 	await app.listen(8000)
