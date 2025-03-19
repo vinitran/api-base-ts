@@ -1,10 +1,8 @@
 import { Global, Module } from "@nestjs/common"
+import { UserRepository } from "@root/_database/repositories/user.repository"
 import { PrismaService } from "./prisma.service"
-import {UserRepository} from '@root/_database/repositories/user.repository';
 
-const repositories = [
-	UserRepository,
-]
+const repositories = [UserRepository]
 
 @Global()
 @Module({

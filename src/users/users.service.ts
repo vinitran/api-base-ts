@@ -1,12 +1,6 @@
-import {
-	BadRequestException,
-	Injectable,
-	InternalServerErrorException,
-	NotAcceptableException,
-	NotFoundException
-} from "@nestjs/common"
-import { Env, InjectEnv } from '@root/_env/env.module';
-import {UserRepository} from '@root/_database/repositories/user.repository';
+import { Injectable, InternalServerErrorException } from "@nestjs/common"
+import { UserRepository } from "@root/_database/repositories/user.repository"
+import { Env, InjectEnv } from "@root/_env/env.module"
 
 @Injectable()
 export class UsersService {

@@ -1,9 +1,5 @@
 import { InjectRedis } from "@nestjs-modules/ioredis"
-import {
-	BadRequestException,
-	Injectable,
-	UnauthorizedException
-} from "@nestjs/common"
+import { Injectable, UnauthorizedException } from "@nestjs/common"
 import { JwtService } from "@nestjs/jwt"
 import { UserRepository } from "@root/_database/repositories/user.repository"
 import { Env, InjectEnv } from "@root/_env/env.module"
@@ -12,10 +8,7 @@ import Redis from "ioredis"
 import randomstr from "randomstring"
 import nacl from "tweetnacl"
 import { decodeUTF8 } from "tweetnacl-util"
-import {
-	VerifySignatureHederaPayload,
-	VerifySignaturePayload
-} from "./dto/verify-signature.dto"
+import { VerifySignaturePayload } from "./dto/verify-signature.dto"
 
 export type Claims = {
 	id: string
@@ -31,7 +24,7 @@ export class AuthService {
 		@InjectEnv() private env: Env
 	) {}
 
-	private authMessageKey(pubkey: string){
+	private authMessageKey(pubkey: string) {
 		return `auth_message_${pubkey}`
 	}
 
@@ -60,7 +53,7 @@ export class AuthService {
 		if (!result) throw new UnauthorizedException("Invalid signature")
 
 		const user = await this.userRepository.createIfNotExist({
-			address: publicKey,
+			address: publicKey
 		})
 
 		const claims: Claims = {
